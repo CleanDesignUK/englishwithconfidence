@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EC Course | English with Confident</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+  <!-- Navbar -->
+<!-- ===== NAVBAR ONLY ===== -->
+<nav class="position-absolute w-100 top-0">
+    <!-- 1) MOBILE HEADER (≤ md) -->
+    <div class="mobile-header d-flex d-md-none justify-content-between align-items-center bg-white px-3 py-2 shadow-sm">
+      <a href="#" class="d-flex align-items-center text-decoration-none">
+        <img src="ec-logo.png" height="32" alt="EC Logo" class="me-2">
+        <span class="brand-text lang-en">EC Course</span>
+        <span class="brand-text lang-id">EC Course</span>
+      </a>
+      <button class="btn p-0"
+              data-bs-toggle="collapse"
+              data-bs-target="#mobileNav"
+              aria-controls="mobileNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <i class="bi bi-list fs-3"></i>
+      </button>
+    </div>
+  
+    <!-- 2) MOBILE COLLAPSE PANEL (≤ md) -->
+    <div class="collapse d-md-none bg-white" id="mobileNav">
+      <div class="px-3 pb-3">
+        <!-- a) Language toggle -->
+        <div class="lang-toggle d-flex gap-2 justify-content-center mb-3">
+          <span data-lang="EN" class="active">EN</span>
+          <span data-lang="ID">ID</span>
+        </div>
+        <!-- b) Links EN -->
+        <ul class="nav flex-column mb-2 lang-en">
+          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+        </ul>
+        <!-- c) Links ID -->
+        <ul class="nav flex-column mb-3 lang-id">
+          <li class="nav-item"><a class="nav-link" href="#hero">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">Tentang Kami</a></li>
+          <li class="nav-item"><a class="nav-link" href="#courses">Kursus</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Harga</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Hubungi Kami</a></li>
+        </ul>
+        <!-- d) Placement Test btn -->
+        <a href="placement-test.html" class="btn placement-test-btn w-100">Placement Test</a>
+      </div>
+    </div>
+  
+    <!-- 3) DESKTOP PILL MENU (≥ md) -->
+    <div class="nav-pill d-none d-md-flex position-absolute top-0 start-50 translate-middle-x mt-4
+                bg-white rounded-pill shadow align-items-center px-4 py-2">
+      <a href="#" class="d-flex align-items-center me-5 text-decoration-none">
+        <img src="ec-logo.png" height="32" alt="EC Logo" class="me-2">
+        <span class="brand-text lang-en">EC Course</span>
+        <span class="brand-text lang-id">EC Course</span>
+      </a>
+      <ul class="nav flex-row lang-en">
+        <li class="nav-item"><a class="nav-link px-3" href="#hero">Home</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#courses">Courses</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact Us</a></li>
+      </ul>
+      <ul class="nav flex-row lang-id">
+        <li class="nav-item"><a class="nav-link px-3" href="#hero">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#about">Tentang Kami</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#courses">Kursus</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#pricing">Harga</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#contact">Hubungi Kami</a></li>
+      </ul>
+    </div>
+  
+    <!-- 4) DESKTOP CONTROLS (≥ md) -->
+    <div class="controls d-none d-md-flex position-absolute top-0 end-0 mt-4 me-4 align-items-center">
+      <div class="lang-toggle me-3">
+        <span data-lang="EN" class="active">EN</span>
+        <span data-lang="ID">ID</span>
+      </div>
+      <a href="placement-test.html" class="btn placement-test-btn">Placement Test</a>
+    </div>
+  </nav>
+  
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section d-flex align-items-center">
+    <div class="container text-center">
+      <div class="lang-en">
+        <h1 class="display-5 fw-bold mb-3">There's Always More to<br/>Discover and Learn</h1>
+        <p class="lead mb-4">Unlock your English potential with our expert tutors.</p>
+        <a href="#courses" class="btn btn-enroll btn-lg">ENROLL NOW →</a>
+      </div>
+      <div class="lang-id">
+        <h1 class="display-5 fw-bold mb-3">Selalu Ada Lebih untuk<br/>Ditemukan dan Dipelajari</h1>
+        <p class="lead mb-4">Buka potensi bahasa Inggrismu dengan pengajar ahli kami.</p>
+        <a href="#courses" class="btn btn-enroll btn-lg">DAFTAR SEKARANG →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="py-5 bg-soft-blue">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="about-image.jpg" alt="About EC Course" class="img-fluid rounded-2 w-100">
+        </div>
+        <div class="col-md-6">
+          <div class="pill-about mb-3">
+            <span class="icon">👥</span>
+            <span class="text lang-en">About Us</span>
+            <span class="text lang-id">Tentang Kami</span>
+          </div>
+          <h2 class="mb-3">
+            <span class="lang-en">Discover Who We Are and Our Mission</span>
+            <span class="lang-id">Temukan Siapa Kami dan Misi Kami</span>
+          </h2>
+          <p class="mb-4 text-dark-charcoal">
+            <span class="lang-en">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            <span class="lang-id">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+          </p>
+          <a href="#contact" class="btn btn-enroll">
+            <span class="lang-en">Book Call →</span>
+            <span class="lang-id">Pesan Panggilan →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section id="testimonial" class="py-5 bg-white">
+    <div class="container position-relative">
+      <div class="position-relative mb-5">
+        <hr class="testimonial-line">
+        <div class="testimonial-pill position-absolute top-50 start-50 translate-middle bg-white rounded-pill px-4 py-2 d-flex align-items-center shadow-sm">
+          <div class="avatars d-flex me-2">
+            <img src="avatar1.jpg" class="avatar" alt="">
+            <img src="avatar2.jpg" class="avatar" alt="">
+            <img src="avatar3.jpg" class="avatar" alt="">
+          </div>
+          <span>980+ 
+            <span class="lang-en">Happy Customers</span>
+            <span class="lang-id">Pelanggan Puas</span>
+          </span>
+        </div>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-3">
+          <div class="stat-card p-4 bg-soft-blue rounded text-center">
+            <h3 class="mb-2">30+</h3>
+            <p class="mb-0">Courses</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stat-card p-4 bg-soft-blue rounded text-center">
+            <h3 class="mb-2">10+</h3>
+            <p class="mb-0">Schools</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stat-card p-4 bg-soft-blue rounded text-center">
+            <h3 class="mb-2">100+</h3>
+            <p class="mb-0">Students</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotional Section -->
+  <section id="promo" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-9">
+          <div class="promo-box rounded p-5 text-center">
+            <div class="promo-icon mb-4">
+              <img src="promo-icon.png" alt="" width="64">
+            </div>
+            <h2 class="mb-3">
+              <span class="lang-en">100.000 IDR/hr only for your first lesson!</span>
+              <span class="lang-id">100.000 IDR/jam hanya untuk pelajaran pertama Anda!</span>
+            </h2>
+            <p class="mb-4 text-dark-charcoal">
+              <span class="lang-en">Book now to grab this special introductory offer.</span>
+              <span class="lang-id">Pesan sekarang untuk mendapatkan penawaran perkenalan khusus ini.</span>
+            </p>
+            <a href="#enroll" class="btn btn-enroll btn-lg">
+              <span class="lang-en">ENROLL NOW →</span>
+              <span class="lang-id">DAFTAR SEKARANG →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section (Packages Only, bilingual + checklist) -->
+  <section id="services" class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="pill-services mx-auto mb-3">
+          <i class="bi bi-award-fill"></i>
+          <span class="lang-en">Why Us</span>
+          <span class="lang-id">Mengapa Kami</span>
+        </div>
+        <h2 class="section-heading">
+          <span class="lang-en">Interactive Learning Experience</span>
+          <span class="lang-id">Pengalaman Belajar Interaktif</span>
+        </h2>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <!-- Free Trial Class -->
+        <div class="col-md-4">
+          <div class="service-card p-5 rounded position-relative">
+            <span class="icon-badge">
+              <i class="bi bi-star-fill"></i>
+            </span>
+            <h5 class="mt-4">
+              <span class="lang-en">Free Trial Class</span>
+              <span class="lang-id">Kelas Percobaan Gratis</span>
+            </h5>
+            <p>
+              <span class="lang-en">Enjoy a 30-minute free trial to experience our teaching style firsthand.</span>
+              <span class="lang-id">Nikmati percobaan gratis 30 menit untuk merasakan gaya mengajar kami.</span>
+            </p>
+            <ul class="list-unstyled mb-3">
+              <li><i class="bi bi-check-circle-fill text-primary-blue me-2"></i>
+                <span class="lang-en">Personalized lessons</span>
+                <span class="lang-id">Pelajaran dipersonalisasi</span>
+              </li>
+              <li><i class="bi bi-check-circle-fill text-primary-blue me-2"></i>
+                <span class="lang-en">Instant feedback</span>
+                <span class="lang-id">Umpan balik instan</span>
+              </li>
+              <li><i class="bi bi-check-circle-fill text-primary-blue me-2"></i>
+                <span class="lang-en">Fun quizzes & games</span>
+                <span class="lang-id">Kuis & permainan seru</span>
+              </li>
+            </ul>
+            <a href="#trial" class="btn btn-link p-0">
+              <span class="lang-en">Book Trial →</span>
+              <span class="lang-id">Pesan Kelas →</span>
+            </a>
+          </div>
+        </div>
+        <!-- Weekly Classes -->
+        <div class="col-md-4">
+          <div class="service-card p-5 rounded position-relative">
+            <span class="icon-badge">
+              <i class="bi bi-calendar-week-fill"></i>
+            </span>
+            <h5 class="mt-4">
+              <span class="lang-en">Weekly Classes</span>
+              <span class="lang-id">Kelas Mingguan</span>
+            </h5>
+            <p>
+              <span class="lang-en">Stay consistent with sessions at 150.000 IDR/week.</span>
+              <span class="lang-id">Konsisten dengan sesi 150.000 IDR/minggu.</span>
+            </p>
+            <ul class="list-unstyled mb-3">
+              <li><i class="bi bi-check-circle-fill text-primary-blue me-2"></i>
+                <span class="lang-en">One-on-one tutoring</span>
+                <span class="lang-id">Bimbingan satu lawan satu</span>
+              </li>
+              <li><i class="bi bi-check-circle-fill text-primary-blue me-2"></i>
+                <span class="lang-en">Weekly progress report</span>
+                <span class="lang-id">Laporan kemajuan mingguan</span>
+              </li>
+              <li><i class="bi bi-check-circle-fill text-primary-blue me-2"></i>
+                <span class="lang-en">Interactive exercises</span>
+                <span class="lang-id">Latihan interaktif</span>
+              </li>
+            </ul>
+            <a href="#weekly" class="btn btn-link p-0">
+              <span class="lang-en">Join Weekly →</span>
+              <span class="lang-id">Gabung Mingguan →</span>
+            </a>
+          </div>
+        </div>
+        <!-- Monthly Package -->
+        <div class="col-md-4">
+          <div class="service-card p-5 rounded position-relative">
+            <span class="icon-badge">
+              <i class="bi bi-calendar-month-fill"></i>
+            </span>
+            <h5 class="mt-4">
+              <span class="lang-en">Monthly Package</span>
+              <span class="lang-id">Paket Bulanan</span>
+            </h5>
+            <p>
+              <span class="lang-en">Full access at 550.000 IDR/month — save 50.000 IDR vs weekly.</span>
+              <span class="lang-id">Akses penuh 550.000 IDR/bulan — hemat 50.000 IDR.</span>
+            </p>
+            <ul class="list-unstyled mb-3">
+              <li><i class="bi bi-check-circle-fill text-primary-blue me-2"></i>
+                <span class="lang-en">Unlimited access</span>
+                <span class="lang-id">Akses tak terbatas</span>
+              </li>
+              <li><i class="bi bi-check-circle-fill text-primary-blue me-2"></i>
+                <span class="lang-en">Customized curriculum</span>
+                <span class="lang-id">Kurikulum sesuai kebutuhan</span>
+              </li>
+              <li><i class="bi bi-check-circle-fill text-primary-blue me-2"></i>
+                <span class="lang-en">Monthly assessment</span>
+                <span class="lang-id">Penilaian bulanan</span>
+              </li>
+            </ul>
+            <a href="#monthly" class="btn btn-link p-0">
+              <span class="lang-en">Get Monthly →</span>
+              <span class="lang-id">Dapatkan Bulanan →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotional Section -->
+  <section id="promo" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-9">
+          <div class="promo-box rounded p-5 text-center">
+            <div class="promo-icon mb-4">
+              <img src="promo-icon.png" alt="" width="64">
+            </div>
+            <h2 class="mb-3">
+              <span class="lang-en">Looking for a more affordable class?</span>
+              <span class="lang-id">Ingin kelas yang lebih terjangkau?</span>
+            </h2>
+            <p class="mb-4">
+              <span class="lang-en">Bring your friends and enjoy fun, interactive group learning!</span>
+              <span class="lang-id">Ajak temanmu dan nikmati pembelajaran kelompok yang menyenangkan!</span>
+            </p>
+            <a href="#group" class="btn btn-enroll btn-lg">
+              <span class="lang-en">Join Group Class →</span>
+              <span class="lang-id">Gabung Kelas Grup →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center mb-4">
+        <div class="pill-faq mx-auto">
+          <i class="bi bi-people-fill"></i>
+          <span class="lang-en">FAQ’S</span>
+          <span class="lang-id">PERTANYAAN UMUM</span>
+        </div>
+        <h2 class="section-heading mt-3">
+          <span class="lang-en">Frequently Asked Questions</span>
+          <span class="lang-id">Pertanyaan yang Sering Diajukan</span>
+        </h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-9">
+          <div class="accordion" id="faqAccordion">
+            <!-- FAQ Item 1 -->
+            <div class="accordion-item mb-3">
+              <h2 class="accordion-header" id="faqOneHeading">
+                <button class="faq-question collapsed" 
+                        type="button"
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#faqOne" 
+                        aria-expanded="false">
+                  <span class="lang-en">What services does EC Course offer?</span>
+                  <span class="lang-id">Layanan apa saja yang ditawarkan EC Course?</span>
+                  <span class="faq-toggle-icon"></span>
+                </button>
+              </h2>
+              <div id="faqOne" class="collapse faq-answer" data-bs-parent="#faqAccordion">
+                <p class="lang-en">
+                  We offer one-on-one English lessons for ages 7+, interactive group classes, free trials, placement tests, weekly & monthly packages, and exam-prep courses.
+                </p>
+                <p class="lang-id">
+                  Kami menawarkan pelajaran bahasa Inggris satu-lawan-satu untuk usia 7+, kelas kelompok, percobaan gratis, tes penempatan, paket mingguan & bulanan, serta kursus persiapan ujian.
+                </p>
+              </div>
+            </div>
+            <!-- FAQ Item 2 -->
+            <div class="accordion-item mb-3">
+              <h2 class="accordion-header" id="faqTwoHeading">
+                <button class="faq-question collapsed" 
+                        type="button"
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#faqTwo" 
+                        aria-expanded="false">
+                  <span class="lang-en">What makes EC Course different from others?</span>
+                  <span class="lang-id">Apa yang membedakan EC Course dari penyedia lain?</span>
+                  <span class="faq-toggle-icon"></span>
+                </button>
+              </h2>
+              <div id="faqTwo" class="collapse faq-answer" data-bs-parent="#faqAccordion">
+                <p class="lang-en">
+                  Tutors are TESOL/TEFL-certified, every lesson is tailored, and we use games, quizzes & one-on-one feedback to keep you engaged.
+                </p>
+                <p class="lang-id">
+                  Tutor bersertifikat TESOL/TEFL, setiap pelajaran dipersonalisasi, dan kami menggunakan permainan, kuis & umpan balik satu-lawan-satu agar Anda tetap bersemangat.
+                </p>
+              </div>
+            </div>
+            <!-- FAQ Item 3 -->
+            <div class="accordion-item mb-3">
+              <h2 class="accordion-header" id="faqThreeHeading">
+                <button class="faq-question collapsed" 
+                        type="button"
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#faqThree" 
+                        aria-expanded="false">
+                  <span class="lang-en">What is your pricing structure?</span>
+                  <span class="lang-id">Bagaimana struktur harga Anda?</span>
+                  <span class="faq-toggle-icon"></span>
+                </button>
+              </h2>
+              <div id="faqThree" class="collapse faq-answer" data-bs-parent="#faqAccordion">
+                <p class="lang-en">
+                  150.000 IDR/hr one-on-one; 150.000 IDR/week; 550.000 IDR/month (save 50.000); group classes 100.000 IDR/hr. Pay via bank, card or e-wallet.
+                </p>
+                <p class="lang-id">
+                  150.000 IDR/jam satu-lawan-satu; 150.000 IDR/minggu; 550.000 IDR/bulan (hemat 50.000); kelas grup 100.000 IDR/jam. Bayar via bank, kartu, atau e-wallet.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Testimonial-2 Carousel -->
+  <section id="testimonial-2" class="testimonial-2-section py-5">
+    <div class="container">
+      <div class="testimonial-2-box mx-auto p-5 rounded shadow-sm position-relative">
+        <div id="carouselTestimonial" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+          <div class="carousel-inner text-center">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+              <div class="stars mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="mb-4">
+                <span class="lang-en">Our daughter in Year 6 struggled with creative writing and vocabulary. Nova’s engaging sessions, full of story-based exercises and personalised feedback, boosted her confidence and writing quality.</span>
+                <span class="lang-id">Anak perempuan kami di Kelas 6 kesulitan menulis kreatif dan kosa kata. Sesi Nova yang menarik, penuh latihan berbasis cerita dan umpan balik dipersonalisasi, meningkatkan kepercayaan diri dan kualitas tulisannya.</span>
+              </p>
+              <div class="author">
+                <strong>Sarah</strong>
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+              <div class="stars mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="mb-4">
+                <span class="lang-en">I was worried about my promotion interview. After four sessions with Nova, I felt ready. Nova gave me clear tips, we practised common questions, and she helped me speak with confidence.</span>
+                <span class="lang-id">Saya khawatir tentang wawancara promosi. Setelah empat sesi dengan Nova, saya merasa siap. Nova memberi tips jelas, kami berlatih pertanyaan umum, dan dia membantu saya berbicara dengan percaya diri.</span>
+              </p>
+              <div class="author">
+                <strong>Jessica</strong>
+              </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+              <div class="stars mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="mb-4">
+                <span class="lang-en">Our son was too shy to speak in class. Nova used games and simple exercises to help him. Now he speaks up and uses new words. We can’t thank Nova enough!</span>
+                <span class="lang-id">Anak laki-laki kami terlalu pemalu untuk berbicara di kelas. Nova menggunakan permainan dan latihan sederhana untuk membantunya. Sekarang dia berani berbicara dan menggunakan kata baru. Kami sangat berterima kasih!</span>
+              </p>
+              <div class="author">
+                <strong>Mark D</strong>
+              </div>
+            </div>
+            <!-- Slide 4 -->
+            <div class="carousel-item">
+              <div class="stars mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="mb-4">
+                <span class="lang-en">Nova made spelling and sentence-building feel like a game. Our daughter can’t wait for the next lesson.</span>
+                <span class="lang-id">Nova membuat pengejaan dan penyusunan kalimat seperti permainan. Anak perempuan kami sangat menantikan pelajaran berikutnya.</span>
+              </p>
+              <div class="author">
+                <strong>Audi</strong>
+              </div>
+            </div>
+            <!-- Slide 5 -->
+            <div class="carousel-item">
+              <div class="stars mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="mb-4">
+                <span class="lang-en">Fun mock questions and quick tips. I nailed my interview and felt so confident.</span>
+                <span class="lang-id">Pertanyaan tiruan yang menyenangkan dan tips cepat. Saya berhasil dalam wawancara dan merasa sangat percaya diri.</span>
+              </p>
+              <div class="author">
+                <strong>Aditya</strong>
+              </div>
+            </div>
+            <!-- Slide 6 -->
+            <div class="carousel-item">
+              <div class="stars mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="mb-4">
+                <span class="lang-en">I needed to improve my business English for my job interviews and kak Nova made it easy to understand and practice. She’s very patient and always gives helpful feedback.</span>
+                <span class="lang-id">Saya perlu meningkatkan bahasa Inggris bisnis untuk wawancara kerja dan kak Nova membuatnya mudah dipahami dan dipraktikkan. Dia sangat sabar dan selalu memberikan umpan balik yang membantu.</span>
+              </p>
+              <div class="author">
+                <strong>Nisa</strong>
+              </div>
+            </div>
+            <!-- Slide 7 -->
+            <div class="carousel-item">
+              <div class="stars mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="mb-4">
+                <span class="lang-en">My son has been studying with Nova for the past 4 months and we’ve seen a huge improvement in his English, especially in writing and reading comprehension.</span>
+                <span class="lang-id">Anak saya telah belajar dengan Nova selama 4 bulan terakhir dan kami melihat peningkatan besar dalam bahasa Inggrisnya, terutama dalam menulis dan pemahaman bacaan.</span>
+              </p>
+              <div class="author">
+                <strong>Lisa W</strong>
+              </div>
+            </div>
+            <!-- Slide 8 -->
+            <div class="carousel-item">
+              <div class="stars mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="mb-4">
+                <span class="lang-en">I’ve taken English courses before, but kak Nova's lessons are on another level. I’m much more confident now during team presentations.</span>
+                <span class="lang-id">Saya pernah mengikuti kursus Inggris sebelumnya, tetapi pelajaran kak Nova berada di level berbeda. Saya jauh lebih percaya diri sekarang saat presentasi tim.</span>
+              </p>
+              <div class="author">
+                <strong>Putri</strong>
+              </div>
+            </div>
+            <!-- Slide 9 -->
+            <div class="carousel-item">
+              <div class="stars mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="mb-4">
+                <span class="lang-en">Nova has been a fantastic tutor for my daughter. She enjoys the lessons and always looks forward to her sessions. Highly recommend her for academic English support.</span>
+                <span class="lang-id">Nova telah menjadi tutor fantastis untuk putri saya. Dia menikmati pelajaran dan selalu menantikan sesinya. Sangat merekomendasikan untuk dukungan bahasa Inggris akademis.</span>
+              </p>
+              <div class="author">
+                <strong>Daniel</strong>
+              </div>
+            </div>
+            <!-- Slide 10 -->
+            <div class="carousel-item">
+              <div class="stars mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="mb-4">
+                <span class="lang-en">Nova has helped me feel more confident in my English. She is very good at inspiring me to practice the language more.</span>
+                <span class="lang-id">Nova telah membantu saya merasa lebih percaya diri dalam bahasa Inggris. Dia sangat pandai menginspirasi saya untuk lebih berlatih.</span>
+              </p>
+              <div class="author">
+                <strong>Student</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Invisible Prev/Next Controls -->
+          <button class="carousel-control-prev" type="button"
+                  data-bs-target="#carouselTestimonial" data-bs-slide="prev"></button>
+          <button class="carousel-control-next" type="button"
+                  data-bs-target="#carouselTestimonial" data-bs-slide="next"></button>
+
+          <!-- Indicators -->
+          <div class="carousel-indicators position-static justify-content-center mt-4">
+            <button type="button" data-bs-target="#carouselTestimonial" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselTestimonial" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselTestimonial" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#carouselTestimonial" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#carouselTestimonial" data-bs-slide-to="4"></button>
+            <button type="button" data-bs-target="#carouselTestimonial" data-bs-slide-to="5"></button>
+            <button type="button" data-bs-target="#carouselTestimonial" data-bs-slide-to="6"></button>
+            <button type="button" data-bs-target="#carouselTestimonial" data-bs-slide-to="7"></button>
+            <button type="button" data-bs-target="#carouselTestimonial" data-bs-slide-to="8"></button>
+            <button type="button" data-bs-target="#carouselTestimonial" data-bs-slide-to="9"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support & Contact Section -->
+  <section id="support" class="py-5 bg-white">
+    <div class="container">
+      <!-- Pill Header & Title -->
+      <div class="text-center mb-4">
+        <div class="pill-contact mx-auto">
+          <i class="bi bi-telephone-fill"></i>
+          <span class="lang-en">Contact</span>
+          <span class="lang-id">Kontak</span>
+        </div>
+        <h2 class="section-heading mt-3">
+          <span class="lang-en">We Are Here to Support You</span>
+          <span class="lang-id">Kami Siap Mendukung Anda</span>
+        </h2>
+        <p class="text-muted mb-4">
+          <span class="lang-en">
+            Customer support is our highest priority. We’re here to answer all your questions via our 24/7 Live Chat.
+          </span>
+          <span class="lang-id">
+            Dukungan pelanggan adalah prioritas utama kami. Kami siap menjawab semua pertanyaan Anda melalui Live Chat 24/7.
+          </span>
+        </p>
+      </div>
+
+      <!-- Form Card (centered, narrower) -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-lg-6 col-md-8">
+          <div class="support-box p-4 rounded shadow-sm">
+            <form action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY"/>
+              <input type="hidden" name="subject" value="New Support Message"/>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="support-name" class="form-label lang-en">Name</label>
+                  <label for="support-name" class="form-label lang-id d-none">Nama</label>
+                  <input type="text" id="support-name" name="name"
+                         class="form-control" placeholder="Enter your name" required/>
+                </div>
+                <div class="col-md-6">
+                  <label for="support-email" class="form-label lang-en">Email</label>
+                  <label for="support-email" class="form-label lang-id d-none">Email</label>
+                  <input type="email" id="support-email" name="email"
+                         class="form-control" placeholder="Enter your email" required/>
+                </div>
+                <div class="col-12">
+                  <label for="support-message" class="form-label lang-en">Message</label>
+                  <label for="support-message" class="form-label lang-id d-none">Pesan</label>
+                  <textarea id="support-message" name="message"
+                            class="form-control" rows="3" placeholder="Enter your message" required></textarea>
+                </div>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn btn-enroll btn-lg px-4">
+                    <span class="lang-en">Send Your Message</span>
+                    <span class="lang-id">Kirim Pesan Anda</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links (compact) -->
+      <div class="row justify-content-center g-3">
+        <div class="col-auto">
+          <a href="mailto:englishwithconfidence@protonmail.com" class="quick-link d-flex align-items-center p-2 rounded">
+            <i class="bi bi-envelope-fill"></i>
+            <span class="ms-2">Send Us an E-mail</span>
+          </a>
+        </div>
+        <div class="col-auto">
+          <a href="tel:+6287872055691" class="quick-link d-flex align-items-center p-2 rounded">
+            <i class="bi bi-telephone-fill"></i>
+            <span class="ms-2 lang-en">Book a Call</span>
+            <span class="ms-2 lang-id d-none">Pesan Panggilan</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer bg-white py-5">
+    <div class="container">
+      <!-- Subscribe & Top Nav -->
+      <div class="text-center mb-4">
+        <img src="ec-logo.png" alt="EC Course Logo" class="footer-logo mb-3">
+        <h2 class="footer-heading mb-2">Subscribe To Get Notified About Update</h2>
+        <p class="footer-text mb-4">
+          By subscribing with your mail, you will accept our privacy policy
+        </p>
+        <div class="footer-nav mb-3">
+          <a href="#hero"    class="footer-link">Home</a>
+          <a href="#about"   class="footer-link">About Us</a>
+          <a href="#services" class="footer-link">Courses & Pricing</a>
+          <a href="#contact" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+
+      <!-- horizontal separator -->
+      <hr class="footer-divider mb-4">
+
+      <!-- Bottom row: policies & social -->
+      <div class="row align-items-center justify-content-center">
+        <div class="col-auto">
+          <ul class="footer-bottom-nav list-inline mb-0">
+            <li class="list-inline-item"><a href="privacy.html">Privacy Policy</a></li>
+            <li class="list-inline-item"><a href="cookie.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-auto">
+          <ul class="social-list list-inline mb-0">
+            <li class="list-inline-item">
+              <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Language Toggle Script -->
+  <script>
+    document.querySelectorAll('.lang-toggle span').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        document.body.classList.toggle('lang-id-active', lang === 'ID');
+        document.querySelectorAll('.lang-toggle span').forEach(b => {
+          b.classList.toggle('active', b === btn);
+        });
+      });
+    });
+    // Default to English
+    document.body.classList.remove('lang-id-active');
+  </script>
+</body>
+</html>

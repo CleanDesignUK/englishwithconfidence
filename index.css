@@ -1,0 +1,793 @@
+:root {
+    --primary-blue: #0018FF;
+    --accent-orange: #FF9400;
+    --soft-blue: #E6ECFF;
+    --warm-cream: #FFF3E6;
+    --dark-charcoal: #333333;
+    --mid-grey: #777777;
+    --light-grey: #F5F5F5;
+}
+
+/* Hide/show via body class */
+.lang-en { display: block; }
+.lang-id { display: none; }
+.lang-en.nav { display: flex !important; }
+body.lang-id-active .lang-en { display: none; }
+body.lang-id-active .lang-en.nav { display: none !important; }
+body.lang-id-active .lang-id { display: block; }
+body.lang-id-active .lang-id.nav { display: flex !important; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--light-grey);
+}
+
+/* Brand text */
+.brand-text {
+    color: var(--primary-blue);
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+/* Navbar above all */
+nav.position-absolute { z-index: 1000; }
+
+/* Language Toggle Circles */
+.controls { z-index: 1100; } /* ensure it floats above everything */
+.lang-toggle { display: flex; gap: 0.5rem; }
+.lang-toggle span {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; cursor: pointer; user-select: none;
+  background-color: var(--soft-blue); color: var(--mid-grey);
+  transition: all 0.2s;
+}
+.lang-toggle span.active {
+  background-color: var(--primary-blue) !important;
+  color: #fff !important;
+  border: 4px solid var(--accent-orange) !important;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, rgba(0,24,255,0.1), rgba(0,24,255,0.1)),
+    url('background-2.png') center/cover no-repeat;
+  display: flex; align-items: center; text-align: center;
+}
+.hero-section h1 { color: var(--dark-charcoal); margin-bottom: 0.5rem; }
+.hero-section .lead { color: var(--mid-grey); margin-bottom: 1.5rem; }
+
+/* CTA Buttons */
+.btn-enroll,
+.placement-test-btn {
+  background-color: var(--accent-orange) !important;
+  border-color: var(--accent-orange) !important;
+  color: #fff !important;
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  transition: opacity 0.2s;
+}
+.btn-enroll:hover,
+.placement-test-btn:hover { opacity: 0.9; }
+
+/* Section Backgrounds */
+.bg-soft-blue { background-color: var(--soft-blue) !important; }
+.bg-warm-cream { background-color: var(--warm-cream) !important; }
+.bg-white      { background-color: #fff !important; }
+
+/* Text Colors */
+.text-primary-blue  { color: var(--primary-blue) !important; }
+.text-dark-charcoal { color: var(--dark-charcoal) !important; }
+.text-mid-grey      { color: var(--mid-grey) !important; }
+
+/* Form Fields */
+.form-control.bg-light-grey,
+.form-select.bg-light-grey {
+  background-color: var(--light-grey);
+  border: 1px solid #ccc;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 0.2rem rgba(0,24,255,0.25);
+}
+
+/* --- Revised About Us & Testimonial Styles --- */
+
+/* About Us “Pill” */
+.pill-about {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--mid-grey);
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+}
+.pill-about .icon {
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+}
+.pill-about .text {
+  font-weight: 500;
+  color: var(--primary-blue);
+}
+
+/* Testimonial */
+.testimonial-line {
+  border: 1px solid #ddd;
+  margin: 0;
+  height: 0;
+}
+.testimonial-pill {
+  font-weight: 500;
+}
+.avatars {
+  display: flex;
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-left: -8px;
+}
+.stat-card {
+  background: var(--soft-blue);
+}
+.stat-card h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.stat-card p {
+  margin: 0;
+  color: var(--dark-charcoal);
+}
+
+/* Ratings Section */
+.rating-card {
+  background: #fff;
+  border-radius: 8px;
+}
+.icon-circle {
+  width: 40px; height: 40px;
+  background: var(--primary-blue);
+  color: #fff;
+  border-radius: 50%;
+  font-weight: bold;
+}
+.rating-number {
+  font-weight: bold;
+  color: var(--dark-charcoal);
+}
+.rating-count {
+  color: var(--mid-grey);
+}
+.caption {
+  font-size: 0.875rem;
+}
+
+/* Promotional Section */
+.promo-box {
+  background-image: url('promo.png');
+  background-size: cover;
+  background-position: center;
+}
+#promo {
+  background-color: #fff !important;
+}
+
+/* Services Section */
+.pill-services {
+  display: inline-flex; align-items: center;
+  background: #fff; border: 1px solid var(--mid-grey);
+  border-radius: 50px; padding: 0.5rem 1rem; margin-bottom: 1rem;
+}
+.pill-services .bi {
+  font-size: 1.25rem; margin-right: 0.5rem;
+  color: var(--primary-blue);
+}
+.pill-services .text {
+  font-weight: 500; color: var(--primary-blue);
+}
+.section-heading {
+  font-size: 1.75rem; font-weight: 600;
+  color: var(--dark-charcoal); margin-bottom: 2rem;
+}
+.service-card {
+  position: relative; background: #fff; border: 1px solid #eee;
+  min-height: 260px; padding-top: 2rem;
+  text-align: left;
+}
+.service-card .icon-badge {
+  position: absolute; top: -24px; left: 50%;
+  transform: translateX(-50%);
+  width: 48px; height: 48px;
+  background: var(--soft-blue);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--primary-blue); font-size: 1.5rem;
+}
+.service-card h5 {
+  margin-top: 1rem; margin-bottom: 0.75rem;
+  font-weight: 600; color: var(--dark-charcoal);
+}
+.service-card p {
+  color: var(--mid-grey); font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+.service-card ul {
+  padding-left: 1rem; margin-bottom: 1rem;
+}
+.service-card ul li {
+  margin-bottom: 0.5rem;
+  display: flex; align-items: center;
+}
+.service-card ul li i {
+  font-size: 1rem; margin-right: 0.5rem;
+}
+.service-card .btn-link {
+  color: var(--primary-blue); font-weight: 500;
+  text-decoration: none;
+}
+.service-card .btn-link:hover {
+  text-decoration: underline;
+}
+
+/* FAQ Pill + Heading */
+.pill-faq {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  border: 1px solid var(--mid-grey);
+  border-radius: 50px;
+}
+.pill-faq i {
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+  color: var(--primary-blue);
+}
+.pill-faq::before,
+.pill-faq::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 1px;
+  background: var(--mid-grey);
+}
+.pill-faq::before { left: -70px; }
+.pill-faq::after  { right: -70px; }
+
+.section-heading {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--dark-charcoal);
+  margin-top: 1rem;
+}
+
+/* Single-button FAQ */
+.faq-question {
+  width: 100%;
+  background: var(--light-grey);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  position: relative;
+  font-size: 1rem;
+  color: var(--dark-charcoal);
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.faq-question::after { display: none; } /* hide default */
+.faq-toggle-icon {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--accent-orange);
+  color: #fff;
+  line-height: 32px;
+  text-align: center;
+  font-size: 1.25rem;
+}
+.faq-question.collapsed .faq-toggle-icon::after {
+  content: "+";
+}
+.faq-question:not(.collapsed) .faq-toggle-icon::after {
+  content: "−";
+}
+
+/* Answer panel */
+.faq-answer {
+  background: var(--light-grey);
+  border-radius: 0 0 8px 8px;
+  padding: 0 1.5rem 1rem;
+  margin-top: -0.5rem;
+  color: var(--dark-charcoal);
+}
+
+/* New Testimonial-2 Section */
+.testimonial-2-section {
+  background-color: #fff;
+}
+.testimonial-2-box {
+  background:
+    url('testi-bg.png') center/cover no-repeat !important;
+  border-radius: 16px;
+  max-width: 720px;
+}
+.testimonial-2-box .stars i {
+  font-size: 1.5rem;
+  color: var(--accent-orange);
+  margin: 0 .15rem;
+}
+.testimonial-2-box p {
+  color: var(--dark-charcoal);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.testimonial-2-box .author strong {
+  color: var(--dark-charcoal);
+  font-size: 1rem;
+}
+
+/* Invisible prev/next */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 15%;
+  background: transparent;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: none;
+}
+
+/* Indicators */
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--mid-grey);
+  opacity: 1;
+}
+.carousel-indicators .active {
+  background-color: var(--dark-charcoal);
+}
+
+/* ---- Support & Contact Styles ---- */
+/* Pill “Contact” header */
+.pill-contact {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  border: 1px solid var(--mid-grey);
+  border-radius: 50px;
+}
+.pill-contact i {
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+  color: var(--primary-blue);
+}
+.pill-contact span {
+  font-weight: 500;
+  color: var(--primary-blue);
+}
+.pill-contact::before,
+.pill-contact::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 1px;
+  background: var(--mid-grey);
+}
+.pill-contact::before { left: -70px; }
+.pill-contact::after  { right: -70px; }
+
+/* Support box container */
+.support-box {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 1.5rem !important;
+}
+
+/* Form controls */
+.support-box .form-label {
+  font-weight: 500;
+  color: var(--dark-charcoal);
+}
+.support-box .form-control {
+  background-color: var(--light-grey);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.support-box .form-control:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 0.2rem rgba(0,24,255,0.25);
+}
+
+/* Gradient button */
+.btn-gradient {
+  background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  transition: opacity 0.2s;
+}
+.btn-gradient:hover {
+  opacity: 0.9;
+}
+
+/* Quick links */
+.quick-link {
+  background: #fff;
+  border: 1px solid var(--mid-grey);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--dark-charcoal);
+  transition: background 0.2s;
+  padding: 0.5rem;
+}
+.quick-link i {
+  font-size: 1.25rem;
+  color: var(--primary-blue);
+}
+.quick-link:hover {
+  background: var(--soft-blue);
+}
+
+/* Bilingual toggle fixes */
+.lang-id { display: none; }
+body.lang-id-active .lang-en { display: none; }
+body.lang-id-active .lang-id { display: inline; }
+
+/* Footer */
+.footer-logo {
+  width: 48px;
+  height: auto;
+}
+.footer-heading {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--dark-charcoal);
+}
+.footer-text {
+  color: var(--mid-grey);
+}
+.footer-nav {
+  margin-top: 1rem;
+}
+.footer-link {
+  display: inline-block;
+  margin: 0 .5rem .5rem;
+  padding: .25rem .75rem;
+  background: #fff;
+  border: 1px solid var(--mid-grey);
+  border-radius: 50px;
+  color: var(--dark-charcoal);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.footer-link:hover {
+  background: var(--soft-blue);
+  color: var(--primary-blue);
+}
+.footer-divider {
+  border: none;
+  border-top: 1px solid var(--soft-blue);
+  margin: 2rem 0;
+}
+.footer-icon {
+  width: 24px;
+  height: auto;
+  filter: invert(30%) sepia(80%) saturate(700%) hue-rotate(210deg) brightness(1);
+}
+.footer-bottom-nav .list-inline-item {
+  margin: 0 .75rem;
+}
+.footer-bottom-nav a {
+  color: var(--mid-grey);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-bottom-nav a:hover {
+  color: var(--dark-charcoal);
+}
+.social-list .social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  background: #fff;
+  border: 1px solid var(--mid-grey);
+  border-radius: 50%;
+  color: var(--primary-blue);
+  transition: background 0.2s;
+}
+.social-list .social-link:hover {
+  background: var(--soft-blue);
+}
+.social-list .social-link i {
+  font-size: 1.25rem;
+}
+
+/* Responsive additions */
+.nav-pill {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.nav-pill .nav {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 576px) {
+  /* Navbar adjustments */
+  .nav-pill {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
+  .nav-pill a.d-flex,
+  .nav-pill .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-pill .nav-link {
+    padding: 0.5rem 0;
+  }
+  .controls {
+    position: static !important;
+    margin: 1rem auto 0 auto;
+    justify-content: center;
+  }
+  /* Hero text scaling */
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  .hero-section .lead {
+    font-size: 1rem;
+  }
+  /* Section padding */
+  section.py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+    /* Make the nav pill span full width, drop the absolute positioning & round corners */
+    .nav-pill {
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+      transform: none !important;
+      width: 100%;
+      border-radius: 0;
+      padding: 1rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    /* Center the logo + brand and give it some breathing room */
+    .nav-pill > a.d-flex {
+      margin-bottom: 1rem;
+      justify-content: center;
+      width: 100%;
+    }
+  
+    /* Stack the links vertically */
+    .nav-pill .nav {
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+    }
+    .nav-pill .nav-link {
+      padding: 0.5rem 0;
+    }
+  
+    /* Move the language toggle + button below the menu */
+    .controls {
+      position: relative !important;
+      margin: 1rem auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+    }
+  
+    /* Shrink hero text a bit so it doesn’t overflow */
+    .hero-section h1 {
+      font-size: 2rem;
+    }
+    .hero-section .lead {
+      font-size: 1rem;
+    }
+  }
+  
+  /* -------------- MOBILE NAVBAR & HERO CENTERING -------------- */
+@media (max-width: 576px) {
+  /* Show mobile header, hide pill menu */
+  .mobile-header {
+    display: flex !important;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    z-index: 1100;
+  }
+  .nav-pill {
+    display: none !important;
+  }
+
+  /* Center the hero and add side padding */
+  .hero-section {
+    align-items: center; /* vertical centering */
+    padding: 0; /* remove any absolute offsets */
+  }
+  .hero-section .container {
+    padding: 0 1rem; /* side padding */
+  }
+
+  /* Tweak hero typography */
+  .hero-section h1 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  .hero-section .lead {
+    font-size: 1rem !important;
+  }
+
+  /* Ensure the controls drop below the mobile header */
+  .controls {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    margin-top: 0.5rem !important;
+    width: 100%;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+  }
+}
+
+/* Hide the mobile header on tablets+ */
+@media (min-width: 577px) {
+  .mobile-header {
+    display: none !important;
+  }
+}
+
+/* -------------- MOBILE NAVBAR & HERO CENTERING -------------- */
+/* === Mobile Navbar & Hero tweaks === */
+@media (max-width: 576px) {
+    /* Hide desktop pill + controls */
+    .nav-pill,
+    .controls { display: none !important; }
+  
+    /* Make the mobile collapse menu full-width under the header */
+    #mobileNav {
+      position: absolute;
+      top: calc( (var(--bs-navbar-height, 0) + 1rem) ); /* just below header */
+      left: 0;
+      right: 0;
+      z-index: 1090;
+    }
+  
+    /* Hero side padding & vertical centering */
+    .hero-section .container {
+      padding: 0 1rem;
+    }
+    .hero-section {
+      min-height: calc(100vh - 3.5rem); /* account for header height */
+      align-items: center;
+    }
+  
+    /* Slightly smaller hero type */
+    .hero-section h1 {
+      font-size: 2rem !important;
+      line-height: 1.2 !important;
+    }
+    .hero-section .lead {
+      font-size: 1rem !important;
+    }
+  }
+  
+  /* Bootstraps’s collapse depends on JS bundle which you already include */
+  /* Ensure navbar sits above everything */
+nav.position-absolute {
+    z-index: 1000;
+  }
+  
+  /* MOBILE-STYLES */
+  @media (max-width: 576px) {
+    /* Hide desktop pill menu on phones */
+    .nav-pill {
+      display: none !important;
+    }
+  
+    /* Position the collapsed panel directly under the header */
+    #mobileNav {
+      position: absolute;
+      top: 3.5rem;      /* adjust if your header height changes */
+      left: 0;
+      right: 0;
+      z-index: 1090;
+    }
+  }
+  
+  /* DESKTOP-STYLES */
+  @media (min-width: 577px) {
+    /* Hide mobile header + collapse on tablets+ */
+    .mobile-header,
+    #mobileNav {
+      display: none !important;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    /* ensure footer content sits clear of the bottom edge */
+    footer.footer {
+      padding-bottom: 3rem !important;
+    }
+  
+    /* stack policies over the icons, with a gap */
+    .footer .row.align-items-center.justify-content-center {
+      flex-direction: column !important;
+      row-gap: 1.5rem;
+    }
+  
+    /* spread out the policy links */
+    .footer-bottom-nav.list-inline {
+      display: flex !important;
+      justify-content: center;
+      column-gap: 2rem;
+    }
+  
+    /* spread out the social icons */
+    .social-list.list-inline {
+      display: flex !important;
+      justify-content: center;
+      column-gap: 1.5rem;
+    }
+  }
+  
+  /* ===== NAVBAR‐ONLY STYLES ===== */
+/* Ensure the desktop controls float above everything */
+.controls {
+    z-index: 1100;
+  }
+  
+  /* Tweak the pill menu & controls on desktop if you need more spacing */
+  @media (min-width: 768px) {
+    .nav-pill {
+      /* e.g. move it down a touch */
+      margin-top: 3.5rem;
+    }
+    .controls {
+      margin-top: 3.5rem;
+    }
+  }
+  
+  
