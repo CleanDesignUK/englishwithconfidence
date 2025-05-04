@@ -1,0 +1,305 @@
+/* in your main stylesheet (or a <style> block) */
+body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .lead,
+  .section-heading {
+    font-family: 'Quicksand', sans-serif;
+  }
+  /* make hero description thicker */
+  #toefl-hero .lead {
+    font-weight: 500;   /* or 600 for even more heft */
+  }
+  
+
+/* Navbar above all */
+nav.position-absolute { z-index: 1000; }
+
+/* Desktop controls sit above */
+.controls { z-index: 1100; }
+
+/* Language Toggle Circles */
+.lang-toggle { display: flex; gap: 0.5rem; }
+.lang-toggle span {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  background-color: var(--soft-blue);
+  color: var(--mid-grey);
+  transition: all 0.2s;
+}
+.lang-toggle span.active {
+  background-color: var(--primary-blue) !important;
+  color: #fff !important;
+  border: 4px solid var(--accent-orange) !important;
+}
+
+/* Placement Test button */
+.placement-test-btn {
+  height: 48px;
+  padding: 0 1.5rem;
+  background: var(--accent-orange);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 24px;
+  text-transform: none;
+  transition: background 0.2s;
+}
+.placement-test-btn:hover {
+  background: rgba(255,165,0,0.85);
+}
+.placement-test-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 1.5rem;
+  }
+
+  nav.position-absolute {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* keep it above the content */
+  }
+  
+  
+
+/* Responsive tweaks for very small screens */
+@media (max-width: 576px) {
+  .nav-pill {
+    position: static !important;
+    transform: none !important;
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
+  .nav-pill .nav,
+  .nav-pill a.d-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-pill .nav-link {
+    padding: 0.5rem 0;
+  }
+  .controls {
+    position: static !important;
+    margin: 1rem auto 0 auto;
+    justify-content: center;
+  }
+}
+
+
+/* Hero: white background */
+#toefl-hero {
+    background-color: #fff;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background:
+      linear-gradient(135deg, rgba(0,24,255,0.1), rgba(0,24,255,0.1)),
+      url('toefl-hero.png') center/cover no-repeat;
+}
+#toefl-hero h1 { color: var(--dark-charcoal); }
+#toefl-hero .lead { color: var(--mid-grey); }
+
+/* Section headings */
+.section-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--dark-charcoal);
+}
+
+/* PDF grid cards (fixed size for 3×3) */
+.pdf-card {
+  width: 100%;
+  max-width: 200px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: var(--dark-charcoal);
+}
+.pdf-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.pdf-card i {
+  font-size: 2rem;
+  color: var(--primary-blue);
+  margin-bottom: 0.5rem;
+}
+.pdf-card h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Hide all PDF pages by default */
+.pdf-page { display: none; }
+
+/* Pagination styling */
+.pagination .page-link {
+  color: var(--primary-blue);
+  border: none;
+  padding: 0.5rem 0.75rem;
+}
+.pagination .page-item.active .page-link {
+  background: var(--primary-blue);
+  color: #fff;
+  border-radius: 50%;
+}
+.pagination .page-link:hover {
+  background: rgba(0,24,255,0.1);
+}
+
+/* Official links */
+.external-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-blue);
+  font-weight: 500;
+  text-decoration: none;
+}
+.external-links a:hover { opacity: 0.8; }
+.external-links i { font-size: 1.25rem; }
+
+/* CTA Bento box */
+.cta-box {
+  max-width: 800px;
+  height: 280px;
+  margin: auto;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.cta-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('cta-toefl.png') center/cover no-repeat;
+}
+.cta-content {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  color: #fff;
+  padding: 1rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+.cta-content h2 { margin-bottom: 0.75rem; }
+.cta-content p { margin-bottom: 1rem; }
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  #toefl-hero h1 { font-size: 2rem; }
+  #toefl-hero .lead { font-size: 1rem; }
+  .cta-content h2 { font-size: 1.5rem; }
+}
+
+/* 1. Widen PDF cards */
+.pdf-card {
+  max-width: 400px;   /* was 200px */
+}
+
+/* 2. Circle-style pagination */
+.pagination .page-link {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.25rem;
+  background: #fff;
+  color: var(--primary-blue);
+  border: none;
+  transition: background 0.2s;
+}
+.pagination .page-item.active .page-link {
+  background: var(--primary-blue);
+  color: #fff;
+}
+.pagination .page-link:hover {
+  background: rgba(0, 24, 255, 0.1);
+}
+
+/* Desktop controls styling */
+.desktop-controls .lang-toggle span {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+.desktop-controls .lang-toggle span.active {
+  background: var(--primary-blue);
+  color: #fff;
+}
+.btn-placement-test {
+  padding: 0.5rem 1.25rem;
+  background: var(--primary-orange);
+  color: #fff;
+  border-radius: 24px;
+  font-weight: 600;
+  text-transform: none;
+  transition: background 0.2s;
+}
+.btn-placement-test:hover {
+  background: var(--primary-orange-hover);
+}
+
+/* Make the CTA box auto‐height and reflow its content on small screens */
+@media (max-width: 768px) {
+    .cta-box {
+      max-width: 100%;
+      height: auto;             /* let it expand */
+      padding: 2rem 1rem 3rem;   /* some breathing room */
+      overflow: visible;         /* show the button */
+      background: url('cta-toefl.png') center/cover no-repeat; /* move bg onto the box */
+    }
+    .cta-bg {
+      display: none;             /* no longer needed on small */
+    }
+    .cta-content {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;           /* normal flow */
+      text-shadow: none;         /* optional for clarity */
+    }
+    .btn-enroll {
+      margin-top: 1rem;
+      line-height: 1;            /* ensure vertical centering */
+    }
+  }
+  
+  /* 2) Vertically center the hero copy on small screens */
+@media (max-width: 768px) {
+    #toefl-hero {
+      /* ensure flex is still on, then center both axes */
+      display: flex;
+      align-items: center;   /* horizontal centering */
+      justify-content: center; /* vertical centering */
+      min-height: 50vh;      /* give it some breathing room */
+      padding: 2rem 1rem;    /* so text doesn’t touch the edges */
+    }
+  }

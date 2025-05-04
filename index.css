@@ -6,7 +6,27 @@
     --dark-charcoal: #333333;
     --mid-grey: #777777;
     --light-grey: #F5F5F5;
+    --white: #fff;
 }
+
+/* in your main stylesheet (or a <style> block) */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', sans-serif;
+}
+
+.lead,
+.section-heading {
+  font-family: 'Quicksand', sans-serif;
+}
+/* make hero description thicker */
+.lead {
+  font-weight: 500;   /* or 600 for even more heft */
+}
+
 
 /* Hide/show via body class */
 .lang-en { display: block; }
@@ -20,7 +40,7 @@ body.lang-id-active .lang-id.nav { display: flex !important; }
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: var(--light-grey);
+    background-color: var(--white);
 }
 
 /* Brand text */
@@ -790,4 +810,66 @@ nav.position-absolute {
     }
   }
   
-  
+
+/* ===== FREE PRACTICE MATERIAL STYLES ===== */
+#free-material {
+  background-color: var(--soft-blue);
+}
+#free-material .section-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--dark-charcoal);
+}
+
+/* Category nav */
+.category-nav .nav-link {
+  color: var(--mid-grey);
+  padding: 0.5rem 1rem;
+  margin: 0 .5rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s;
+}
+.category-nav .nav-link:hover {
+  color: var(--primary-blue);
+}
+.category-nav .nav-link.active {
+  color: var(--primary-blue);
+}
+.category-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-blue);
+}
+
+/* Practice cards */
+.practice-card {
+  background: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.practice-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.practice-card img {
+  object-fit: cover;
+}
+.card-title {
+  color: var(--dark-charcoal);
+  font-weight: 600;
+}
+.card-text {
+  font-size: 0.9rem;
+  color: var(--mid-grey);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  #free-material .section-heading {
+    font-size: 1.75rem;
+  }
+}
