@@ -94,7 +94,7 @@ nav.position-absolute {
 /* Hero: white background */
 #toefl-hero {
   background-color: #fff;
-  min-height: 60vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   text-align: center;

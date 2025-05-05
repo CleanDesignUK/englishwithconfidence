@@ -92,6 +92,7 @@ border: 4px solid var(--accent-orange) !important;
 }
 
 .hero-section {
+padding-top: 4rem;
 min-height: 100vh;
 background: linear-gradient(135deg, rgba(0,24,255,0.1), rgba(0,24,255,0.1)), url('background-2.png') center/cover no-repeat;
 display: flex;
@@ -696,4 +697,26 @@ footer.footer { padding-bottom: 3rem !important; }
 
 #services .service-card .btn-link {
   margin-top: auto;
+}
+
+/* Base state: enable smooth transitions */
+.practice-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* ensure overflow-hidden on the card container masks any scaling */
+  overflow: hidden;
+}
+
+/* Lift and highlight on hover */
+.practice-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Optional: zoom the image a bit for added dynamism */
+.practice-card img {
+  transition: transform 0.3s ease;
+}
+
+.practice-card:hover img {
+  transform: scale(1.1);
 }

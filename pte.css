@@ -95,15 +95,16 @@ nav.position-absolute {
 
 /* Hero: white background */
 #toefl-hero {
-  background-color: #fff;
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  background:
-    linear-gradient(135deg, rgba(0,24,255,0.1), rgba(0,24,255,0.1)),
-    url('toefl-hero.png') center/cover no-repeat;
-}
+    padding-top: 4rem;       /* ← added space below navbar */
+    background-color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background:
+      linear-gradient(135deg, rgba(0,24,255,0.1), rgba(0,24,255,0.1)),
+      url('toefl-hero.png') center/cover no-repeat;
+  }
 #toefl-hero h1 { color: var(--dark-charcoal); }
 #toefl-hero .lead { color: var(--mid-grey); }
 
