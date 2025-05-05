@@ -1,0 +1,36 @@
+/* privacy.css */
+.privacy-section {
+    margin-top: 80px;
+  }
+  
+  @media (max-width: 768px) {
+    .nav-pill {
+      position: static !important;
+      transform: none !important;
+      width: 100% !important;
+      padding: 1rem;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      flex-direction: column;
+      align-items: flex-start !important;
+    }
+  
+    .nav-pill .nav {
+      flex-direction: column;
+    }
+  
+    .privacy-section {
+      padding-top: 20px !important;
+      margin-top: 0;
+    }
+  
+    .footer-link {
+      margin-bottom: 10px;
+    }
+  }
+  
+  .lang-en { display: block; }
+  .lang-id { display: none; }
+  body.lang-id-active .lang-en { display: none; }
+  body.lang-id-active .lang-id { display: block; }
+  

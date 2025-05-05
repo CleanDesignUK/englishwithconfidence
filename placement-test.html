@@ -1,83 +1,582 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EC Course | Placement Test</title>
+  <title>English Level Test | EC Course</title>
+  <meta name="description" content="EC Course – English level proficiency test. Complete 30 questions to determine your CEFR level."/>
+  <meta name="keywords" content="English level test, proficiency test, CEFR, placement test"/>
 
   <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="index.css"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+<!-- Confetti library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+<style>
+  /* WOW result styling */
+  #result .result-card {
+    background: linear-gradient(135deg, #5cb85c, #428bca);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out;
+  }
+  #result .score {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  #result .level {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  .badge-level {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  .badge-A1 { background: #d9534f; }
+  .badge-A2 { background: #f0ad4e; }
+  .badge-B1 { background: #5bc0de; }
+  .badge-B2 { background: #5cb85c; }
+  .badge-C1 { background: #428bca; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Confetti canvas */
+  #confetti-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+  }
+</style>
+
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="logo.png" alt="EC Course Logo" height="40" class="me-2">
-        <span class="brand-text">EC Course</span>
+
+   <!-- NAVBAR -->
+   <nav class="sticky-top w-100 bg-white shadow-sm">
+    <div class="mobile-header d-flex d-md-none justify-content-between align-items-center bg-white px-3 py-2 shadow-sm">
+      <a href="#" class="d-flex align-items-center text-decoration-none">
+        <img src="ec-logo.png" height="32" alt="EC Logo" class="me-2">
+        <span class="brand-text lang-en">EC Course</span>
+        <span class="brand-text lang-id">EC Course</span>
       </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav2"
-      >
-        <span class="navbar-toggler-icon"></span>
+      <button class="btn p-0" data-bs-toggle="collapse" data-bs-target="#mobileNav">
+        <i class="bi bi-list fs-3"></i>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav2">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact Us</a></li>
+    </div>
+    <div class="collapse d-md-none bg-white" id="mobileNav">
+      <div class="px-3 pb-3">
+        <div class="lang-toggle d-flex gap-2 justify-content-center mb-3">
+          <span data-lang="EN" class="active">EN</span>
+          <span data-lang="ID">ID</span>
+        </div>
+        <ul class="nav flex-column mb-2 lang-en">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#services">Courses & Pricing</a></li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#freeExamMobileEn">Free Exam Material</a>
+            <ul class="nav flex-column collapse ms-3" id="freeExamMobileEn">
+              <li class="nav-item"><a class="nav-link" href="toefl.html">TOEFL</a></li>
+              <li class="nav-item"><a class="nav-link" href="toeic.html">TOEIC</a></li>
+              <li class="nav-item"><a class="nav-link" href="ielts.html">IELTS</a></li>
+              <li class="nav-item"><a class="nav-link" href="pte.html">PTE</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html#support">Contact Us</a></li>
         </ul>
+        <ul class="nav flex-column mb-3 lang-id">
+          <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">Tentang Kami</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#services">Kursus & Harga</a></li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#freeExamMobileId">Materi Ujian Gratis</a>
+            <ul class="nav flex-column collapse ms-3" id="freeExamMobileId">
+              <li class="nav-item"><a class="nav-link" href="toefl.html">TOEFL</a></li>
+              <li class="nav-item"><a class="nav-link" href="toeic.html">TOEIC</a></li>
+              <li class="nav-item"><a class="nav-link" href="ielts.html">IELTS</a></li>
+              <li class="nav-item"><a class="nav-link" href="pte.html">PTE</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html#support">Hubungi Kami</a></li>
+        </ul>
+        <a href="placement-test.html" class="btn placement-test-btn w-100">Free Placement Test</a>
       </div>
+    </div>
+    <div class="nav-pill d-none d-md-flex position-absolute top-0 start-50 translate-middle-x mt-4 bg-white rounded-pill shadow align-items-center px-4 py-2">
+      <a href="#" class="d-flex align-items-center me-5 text-decoration-none">
+        <img src="ec-logo.png" height="32" alt="EC Logo" class="me-2">
+        <span class="brand-text lang-en">EC Course</span>
+        <span class="brand-text lang-id">EC Course</span>
+      </a>
+      <ul class="nav flex-row lang-en">
+        <li class="nav-item"><a class="nav-link px-3" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="index.html#about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="index.html#services">Courses & Pricing</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle px-3" data-bs-toggle="dropdown">Free Exam Material</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="toefl.html">TOEFL</a></li>
+            <li><a class="dropdown-item" href="toeic.html">TOEIC</a></li>
+            <li><a class="dropdown-item" href="ielts.html">IELTS</a></li>
+            <li><a class="dropdown-item" href="pte.html">PTE</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link px-3" href="index.html#support">Contact Us</a></li>
+      </ul>
+      <ul class="nav flex-row lang-id">
+        <li class="nav-item"><a class="nav-link px-3" href="index.html">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="index.html#about">Tentang Kami</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="index.html#services">Kursus & Harga</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle px-3" data-bs-toggle="dropdown">Materi Ujian Gratis</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="toefl.html">TOEFL</a></li>
+            <li><a class="dropdown-item" href="toeic.html">TOEIC</a></li>
+            <li><a class="dropdown-item" href="ielts.html">IELTS</a></li>
+            <li><a class="dropdown-item" href="pte.html">PTE</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link px-3" href="index.html#support">Hubungi Kami</a></li>
+      </ul>
+    </div>
+    <div class="controls d-none d-md-flex position-absolute top-0 end-0 mt-4 me-4 align-items-center">
+      <div class="lang-toggle me-3">
+        <span data-lang="EN" class="active">EN</span>
+        <span data-lang="ID">ID</span>
+      </div>
+      <a href="placement-test.html" class="btn placement-test-btn">Free Placement Test</a>
     </div>
   </nav>
 
-  <!-- Placement Test -->
-  <section class="py-5 mt-5">
-    <div class="container">
-      <h2 class="text-primary mb-3">English Placement Test</h2>
-      <form action="https://api.web3forms.com/submit" method="POST" class="row g-3">
-        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
-        <input type="hidden" name="subject" value="EC Course Placement Test" />
-
-        <div class="col-md-6">
-          <input type="text" name="name" class="form-control" placeholder="Your Name" required />
-        </div>
-        <div class="col-md-6">
-          <input type="email" name="email" class="form-control" placeholder="Your Email" required />
-        </div>
-        <div class="col-12">
-          <label class="form-label">1. Fill in the blank: “I ___ to the store yesterday.”</label>
-          <input type="text" name="q1" class="form-control" required />
-        </div>
-        <div class="col-12">
-          <label class="form-label">2. Choose: “She ___ playing soccer.”</label>
-          <select name="q2" class="form-select" required>
-            <option value="">Select...</option>
-            <option value="is">is</option>
-            <option value="are">are</option>
-            <option value="am">am</option>
-          </select>
-        </div>
-        <div class="col-12">
-          <label class="form-label">3. Write 2–3 sentences about your last holiday.</label>
-          <textarea name="q3" rows="4" class="form-control" required></textarea>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Submit Test</button>
-        </div>
-      </form>
+  <!-- HERO -->
+  <section id="hero" class="hero-section d-flex align-items-center">
+    <div class="container text-center px-3 px-md-5">
+      <div class="lang-en">
+        <h1 class="display-5 fw-bold mb-3">English Level Test</h1>
+        <p class="lead mb-4">Test your English proficiency with 30 questions to find out your CEFR level. Scroll down to begin.</p>
+        <a href="#english-level-test" class="btn btn-enroll btn-lg">Start Test</a>
+      </div>
+      <div class="lang-id">
+        <h1 class="display-5 fw-bold mb-3">Tes Level Bahasa Inggris</h1>
+        <p class="lead mb-4">Uji kemampuan Bahasa Inggris Anda dengan 30 pertanyaan untuk mengetahui level CEFR Anda. Geser ke bawah untuk memulai.</p>
+        <a href="#english-level-test" class="btn btn-enroll btn-lg">Mulai Tes</a>
+      </div>
     </div>
   </section>
 
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+ <!-- ENGLISH LEVEL TEST -->
+ <section id="english-level-test" class="py-5 bg-white">
+  <div class="container px-3 px-md-5">
+    <form id="test-form">
+      <h3 class="mb-4">Part 1 – Grammar &amp; Vocabulary (20 questions)</h3>
+      <ol class="list-decimal ps-4">
+        <!-- Q1 -->
+        <li class="mb-4">
+          <p><strong>If I ______ earlier, I wouldn’t be rushing now.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1a" value="a"><label class="form-check-label" for="q1a">a) leave</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1b" value="b"><label class="form-check-label" for="q1b">b) had left</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1c" value="c"><label class="form-check-label" for="q1c">c) would leave</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1d" value="d"><label class="form-check-label" for="q1d">d) left</label></div>
+        </li>
+        <!-- Q2 -->
+        <li class="mb-4">
+          <p><strong>She ______ to have lunch together tomorrow—does that suit you?</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2a" value="a"><label class="form-check-label" for="q2a">a) suggests</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2b" value="b"><label class="form-check-label" for="q2b">b) is suggesting</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2c" value="c"><label class="form-check-label" for="q2c">c) suggested</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2d" value="d"><label class="form-check-label" for="q2d">d) will suggest</label></div>
+        </li>
+        <!-- Q3 -->
+        <li class="mb-4">
+          <p><strong>I can’t decide ______ the red dress or the blue one for the party.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3a" value="a"><label class="form-check-label" for="q3a">a) between</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3b" value="b"><label class="form-check-label" for="q3b">b) among</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3c" value="c"><label class="form-check-label" for="q3c">c) from</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3d" value="d"><label class="form-check-label" for="q3d">d) through</label></div>
+        </li>
+        <!-- Q4 -->
+        <li class="mb-4">
+          <p><strong>He apologized ______ breaking my favourite mug.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q4a" value="a"><label class="form-check-label" for="q4a">a) of</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q4b" value="b"><label class="form-check-label" for="q4b">b) about</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q4c" value="c"><label class="form-check-label" for="q4c">c) for</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q4d" value="d"><label class="form-check-label" for="q4d">d) to</label></div>
+        </li>
+        <!-- Q5 -->
+        <li class="mb-4">
+          <p><strong>By next spring, they ______ in their new house for over a year.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q5a" value="a"><label class="form-check-label" for="q5a">a) will live</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q5b" value="b"><label class="form-check-label" for="q5b">b) will have lived</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q5c" value="c"><label class="form-check-label" for="q5c">c) have lived</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q5d" value="d"><label class="form-check-label" for="q5d">d) had lived</label></div>
+        </li>
+        <!-- Q6 -->
+        <li class="mb-4">
+          <p><strong>Would you mind ______ the music a little? It’s very loud.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q6" id="q6a" value="a"><label class="form-check-label" for="q6a">a) turn down</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q6" id="q6b" value="b"><label class="form-check-label" for="q6b">b) turning down</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q6" id="q6c" value="c"><label class="form-check-label" for="q6c">c) to turn down</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q6" id="q6d" value="d"><label class="form-check-label" for="q6d">d) turned down</label></div>
+        </li>
+        <!-- Q7 -->
+        <li class="mb-4">
+          <p><strong>It’s high time we ______ our holiday plans.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q7" id="q7a" value="a"><label class="form-check-label" for="q7a">a) start</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q7" id="q7b" value="b"><label class="form-check-label" for="q7b">b) started</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q7" id="q7c" value="c"><label class="form-check-label" for="q7c">c) have started</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q7" id="q7d" value="d"><label class="form-check-label" for="q7d">d) would start</label></div>
+        </li>
+        <!-- Q8 -->
+        <li class="mb-4">
+          <p><strong>I’m looking forward ______ my exams next week.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q8" id="q8a" value="a"><label class="form-check-label" for="q8a">a) to complete</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q8" id="q8b" value="b"><label class="form-check-label" for="q8b">b) completing</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q8" id="q8c" value="c"><label class="form-check-label" for="q8c">c) to completing</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q8" id="q8d" value="d"><label class="form-check-label" for="q8d">d) complete</label></div>
+        </li>
+        <!-- Q9 -->
+        <li class="mb-4">
+          <p><strong>__________ you studied harder, you might have passed the test.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q9" id="q9a" value="a"><label class="form-check-label" for="q9a">a) Unless</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q9" id="q9b" value="b"><label class="form-check-label" for="q9b">b) Although</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q9" id="q9c" value="c"><label class="form-check-label" for="q9c">c) If only</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q9" id="q9d" value="d"><label class="form-check-label" for="q9d">d) Whereas</label></div>
+        </li>
+        <!-- Q10 -->
+        <li class="mb-4">
+          <p><strong>They refused ______ any help with the presentation.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q10" id="q10a" value="a"><label class="form-check-label" for="q10a">a) accept</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q10" id="q10b" value="b"><label class="form-check-label" for="q10b">b) to accept</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q10" id="q10c" value="c"><label class="form-check-label" for="q10c">c) accepting</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q10" id="q10d" value="d"><label class="form-check-label" for="q10d">d) have accepted</label></div>
+        </li>
+        <!-- Q11 -->
+        <li class="mb-4">
+          <p><strong>The restaurant was so ______ that we decided to leave.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q11" id="q11a" value="a"><label class="form-check-label" for="q11a">a) busily</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q11" id="q11b" value="b"><label class="form-check-label" for="q11b">b) busy</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q11" id="q11c" value="c"><label class="form-check-label" for="q11c">c) boredom</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q11" id="q11d" value="d"><label class="form-check-label" for="q11d">d) bored</label></div>
+        </li>
+        <!-- Q12 -->
+        <li class="mb-4">
+          <p><strong>I haven’t seen Mark ______ Monday.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q12" id="q12a" value="a"><label class="form-check-label" for="q12a">a) since</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q12" id="q12b" value="b"><label class="form-check-label" for="q12b">b) for</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q12" id="q12c" value="c"><label class="form-check-label" for="q12c">c) until</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q12" id="q12d" value="d"><label class="form-check-label" for="q12d">d) from</label></div>
+        </li>
+        <!-- Q13 -->
+        <li class="mb-4">
+          <p><strong>After finishing the report, she went straight ______ home.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q13" id="q13a" value="a"><label class="form-check-label" for="q13a">a) at</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q13" id="q13b" value="b"><label class="form-check-label" for="q13b">b) to</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q13" id="q13c" value="c"><label class="form-check-label" for="q13c">c) into</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q13" id="q13d" value="d"><label class="form-check-label" for="q13d">d) for</label></div>
+        </li>
+        <!-- Q14 -->
+        <li class="mb-4">
+          <p><strong>He must be tired—he ______ all night on that project.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14a" value="a"><label class="form-check-label" for="q14a">a) works</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14b" value="b"><label class="form-check-label" for="q14b">b) worked</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14c" value="c"><label class="form-check-label" for="q14c">c) has worked</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q14" id="q14d" value="d"><label class="form-check-label" for="q14d">d) had worked</label></div>
+        </li>
+        <!-- Q15 -->
+        <li class="mb-4">
+          <p><strong>That new café is ______ convenient for a quick lunch.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15a" value="a"><label class="form-check-label" for="q15a">a) extremely</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15b" value="b"><label class="form-check-label" for="q15b">b) highly</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15c" value="c"><label class="form-check-label" for="q15c">c) very</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q15" id="q15d" value="d"><label class="form-check-label" for="q15d">d) remarkably</label></div>
+        </li>
+        <!-- Q16 -->
+        <li class="mb-4">
+          <p><strong>I’d rather you ______ me before changing the schedule.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q16" id="q16a" value="a"><label class="form-check-label" for="q16a">a) consult</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q16" id="q16b" value="b"><label class="form-check-label" for="q16b">b) consulted</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q16" id="q16c" value="c"><label class="form-check-label" for="q16c">c) consulting</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q16" id="q16d" value="d"><label class="form-check-label" for="q16d">d) would consult</label></div>
+        </li>
+        <!-- Q17 -->
+        <li class="mb-4">
+          <p><strong>The forecast predicts ______ rain this afternoon.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q17" id="q17a" value="a"><label class="form-check-label" for="q17a">a) heavy</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q17" id="q17b" value="b"><label class="form-check-label" for="q17b">b) heavily</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q17" id="q17c" value="c"><label class="form-check-label" for="q17c">c) heaviness</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q17" id="q17d" value="d"><label class="form-check-label" for="q17d">d) more heavy</label></div>
+        </li>
+        <!-- Q18 -->
+        <li class="mb-4">
+          <p><strong>Although he’s friendly, he can be ______ shy in large groups.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q18" id="q18a" value="a"><label class="form-check-label" for="q18a">a) extremely</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q18" id="q18b" value="b"><label class="form-check-label" for="q18b">b) very</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q18" id="q18c" value="c"><label class="form-check-label" for="q18c">c) rather</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q18" id="q18d" value="d"><label class="form-check-label" for="q18d">d) too</label></div>
+        </li>
+        <!-- Q19 -->
+        <li class="mb-4">
+          <p><strong>We’ll start as soon as everyone ______.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q19" id="q19a" value="a"><label class="form-check-label" for="q19a">a) arrive</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q19" id="q19b" value="b"><label class="form-check-label" for="q19b">b) arrives</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q19" id="q19c" value="c"><label class="form-check-label" for="q19c">c) arrived</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q19" id="q19d" value="d"><label class="form-check-label" for="q19d">d) will arrive</label></div>
+        </li>
+        <!-- Q20 -->
+        <li class="mb-4">
+          <p><strong>She prefers her coffee ______, without sugar or milk.</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q20" id="q20a" value="a"><label class="form-check-label" for="q20a">a) plain</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q20" id="q20b" value="b"><label class="form-check-label" for="q20b">b) simply</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q20" id="q20c" value="c"><label class="form-check-label" for="q20c">c) purely</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q20" id="q20d" value="d"><label class="form-check-label" for="q20d">d) clearly</label></div>
+        </li>
+      </ol>
+
+      <h3 class="mt-5 mb-4">Part 2 – Functional Responses (10 questions)</h3>
+      <ol start="21" class="list-decimal ps-4">
+        <!-- Q21 -->
+        <li class="mb-4">
+          <p><strong>“I’m afraid I can’t attend the meeting tomorrow.”</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q21" id="q21a" value="a"><label class="form-check-label" for="q21a">a) That’s unfortunate.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q21" id="q21b" value="b"><label class="form-check-label" for="q21b">b) No problem—your input was great.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q21" id="q21c" value="c"><label class="form-check-label" for="q21c">c) Why not?</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q21" id="q21d" value="d"><label class="form-check-label" for="q21d">d) I don’t mind.</label></div>
+        </li>
+        <!-- Q22 -->
+        <li class="mb-4">
+          <p><strong>“Could you hand me that file, please?”</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q22" id="q22a" value="a"><label class="form-check-label" for="q22a">a) Certainly—here you go.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q22" id="q22b" value="b"><label class="form-check-label" for="q22b">b) Not at all.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q22" id="q22c" value="c"><label class="form-check-label" for="q22c">c) Only half of it.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q22" id="q22d" value="d"><label class="form-check-label" for="q22d">d) No, thanks.</label></div>
+        </li>
+        <!-- Q23 -->
+        <li class="mb-4">
+          <p><strong>“Shall we take a break now?”</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q23" id="q23a" value="a"><label class="form-check-label" for="q23a">a) Absolutely—let’s do that.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q23" id="q23b" value="b"><label class="form-check-label" for="q23b">b) No chance.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q23" id="q23c" value="c"><label class="form-check-label" for="q23c">c) I’m too busy.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q23" id="q23d" value="d"><label class="form-check-label" for="q23d">d) It’s very well.</label></div>
+        </li>
+        <!-- Q24 -->
+        <li class="mb-4">
+          <p><strong>“Do you know when the bus arrives?”</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q24" id="q24a" value="a"><label class="form-check-label" for="q24a">a) Around noon, I believe.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q24" id="q24b" value="b"><label class="form-check-label" for="q24b">b) I don’t care.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q24" id="q24c" value="c"><label class="form-check-label" for="q24c">c) Because it’s late.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q24" id="q24d" value="d"><label class="form-check-label" for="q24d">d) Not at all.</label></div>
+        </li>
+        <!-- Q25 -->
+        <li class="mb-4">
+          <p><strong>“Would you mind __________ the report by Friday?”</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q25" id="q25a" value="a"><label class="form-check-label" for="q25a">a) complete</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q25" id="q25b" value="b"><label class="form-check-label" for="q25b">b) completing</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q25" id="q25c" value="c"><label class="form-check-label" for="q25c">c) to complete</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q25" id="q25d" value="d"><label class="form-check-label" for="q25d">d) completed</label></div>
+        </li>
+        <!-- Q26 -->
+        <li class="mb-4">
+          <p><strong>“I’m sorry for the delay in replying.”</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q26" id="q26a" value="a"><label class="form-check-label" for="q26a">a) No worries.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q26" id="q26b" value="b"><label class="form-check-label" for="q26b">b) That’s impossible.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q26" id="q26c" value="c"><label class="form-check-label" for="q26c">c) Why did you wait?</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q26" id="q26d" value="d"><label class="form-check-label" for="q26d">d) I can’t reply.</label></div>
+        </li>
+        <!-- Q27 -->
+        <li class="mb-4">
+          <p><strong>“I’ll pay for the tickets.”</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q27" id="q27a" value="a"><label class="form-check-label" for="q27a">a) That’s very kind of you.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q27" id="q27b" value="b"><label class="form-check-label" for="q27b">b) You must not.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q27" id="q27c" value="c"><label class="form-check-label" for="q27c">c) Why so?</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q27" id="q27d" value="d"><label class="form-check-label" for="q27d">d) I’ll pay too.</label></div>
+        </li>
+        <!-- Q28 -->
+        <li class="mb-4">
+          <p><strong>“We’ve run out of printer paper.”</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q28" id="q28a" value="a"><label class="form-check-label" for="q28a">a) Let me refill it.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q28" id="q28b" value="b"><label class="form-check-label" for="q28b">b) That’s all right.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q28" id="q28c" value="c"><label class="form-check-label" for="q28c">c) We can buy some later.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q28" id="q28d" value="d"><label class="form-check-label" for="q28d">d) Not at all.</label></div>
+        </li>
+        <!-- Q29 -->
+        <li class="mb-4">
+          <p><strong>“I’d love to join you, but I have another appointment.”</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q29" id="q29a" value="a"><label class="form-check-label" for="q29a">a) That’s a pity.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q29" id="q29b" value="b"><label class="form-check-label" for="q29b">b) Good for you.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q29" id="q29c" value="c"><label class="form-check-label" for="q29c">c) I don’t care.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q29" id="q29d" value="d"><label class="form-check-label" for="q29d">d) Why not?</label></div>
+        </li>
+        <!-- Q30 -->
+        <li class="mb-4">
+          <p><strong>“Can you explain the final point again?”</strong></p>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q30" id="q30a" value="a"><label class="form-check-label" for="q30a">a) Of course—here’s how it works.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q30" id="q30b" value="b"><label class="form-check-label" for="q30b">b) I don’t suppose.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q30" id="q30c" value="c"><label class="form-check-label" for="q30c">c) It doesn’t matter.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q30" id="q30d" value="d"><label class="form-check-label" for="q30d">d) Because it’s complicated.</label></div>
+        </li>
+      </ol>
+
+      <div class="text-center mt-5">
+        <button type="submit" class="btn btn-enroll btn-lg">Submit Answers</button>
+      </div>
+    </form>
+
+    <!-- Confetti canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Result will appear here -->
+    <div id="result" class="mt-5"></div>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="footer bg-white py-5">
+    <div class="container px-3 px-md-5">
+      <div class="text-center mb-4">
+        <img src="ec-logo.png" alt="EC Course Logo" class="footer-logo mb-3">
+        <h2 class="footer-heading mb-2">
+          <span class="lang-en">Stay Updated</span>
+          <span class="lang-id">Tetap Terupdate</span>
+        </h2>
+        <p class="footer-text mb-4">
+          <span class="lang-en">Subscribe for the latest courses & resources.</span>
+          <span class="lang-id">Berlangganan untuk kursus & sumber terbaru.</span>
+        </p>
+        <div class="footer-nav mb-3">
+          <a href="index.html" class="footer-link"><span class="lang-en">Home</span><span class="lang-id">Beranda</span></a>
+          <a href="index.html#about" class="footer-link"><span class="lang-en">About Us</span><span class="lang-id">Tentang Kami</span></a>
+          <a href="index.html#services" class="footer-link"><span class="lang-en">Courses & Pricing</span><span class="lang-id">Kursus & Harga</span></a>
+          <a href="index.html#support" class="footer-link"><span class="lang-en">Contact Us</span><span class="lang-id">Kontak</span></a>
+          <a href="toefl.html" class="footer-link"><span class="lang-en">TOEFL</span><span class="lang-id">TOEFL</span></a>
+          <a href="toeic.html" class="footer-link"><span class="lang-en">TOEIC</span><span class="lang-id">TOEIC</span></a>
+          <a href="ielts.html" class="footer-link"><span class="lang-en">IELTS</span><span class="lang-id">IELTS</span></a>
+          <a href="pte.html" class="footer-link"><span class="lang-en">PTE</span><span class="lang-id">PTE</span></a>
+        </div>
+      </div>
+      <hr class="footer-divider mb-4">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-auto">
+          <ul class="footer-bottom-nav list-inline mb-0">
+            <li class="list-inline-item"><a href="privacy.html">Privacy Policy</a></li>
+            <li class="list-inline-item"><a href="cookie.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-auto">
+          <ul class="social-list list-inline mb-0">
+            <li class="list-inline-item"><a href="https://www.facebook.com/EnglishWithConfidenceID" class="social-link"><i class="bi bi-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.x.com/EC_courseid" class="social-link"><i class="bi bi-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.instagram.com/ec_englishcourse" class="social-link"><i class="bi bi-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="https://g.co/kgs/QFr66sM" class="social-link"><i class="bi bi-google"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<!-- Bootstrap JS & enhanced scoring script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Language toggle (unchanged)
+  document.querySelectorAll('.lang-toggle span').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      document.body.classList.toggle('lang-id-active', lang === 'ID');
+      document.querySelectorAll('.lang-toggle span').forEach(b => {
+        b.classList.toggle('active', b === btn);
+      });
+    });
+  });
+  document.body.classList.remove('lang-id-active');
+
+  // Answer key
+  const answerKey = {
+    q1:'b', q2:'b', q3:'a', q4:'c', q5:'b', q6:'b', q7:'b', q8:'c', q9:'c', q10:'b',
+    q11:'b', q12:'a', q13:'b', q14:'c', q15:'a', q16:'d', q17:'a', q18:'c', q19:'b', q20:'a',
+    q21:'b', q22:'a', q23:'a', q24:'a', q25:'b', q26:'a', q27:'a', q28:'a', q29:'a', q30:'a'
+  };
+  const descriptions = {
+    A1: 'Beginner: can understand and use basic expressions and introductions.',
+    A2: 'Pre-Intermediate: can understand sentences on familiar topics.',
+    B1: 'Intermediate: can understand main points of clear standard input.',
+    B2: 'Upper-Intermediate: can interact with a degree of fluency and spontaneity.',
+    C1: 'Advanced: can use language flexibly and effectively for social and academic purposes.'
+  };
+  const badgeClasses = {
+    A1:'badge-A1', A2:'badge-A2', B1:'badge-B1', B2:'badge-B2', C1:'badge-C1'
+  };
+
+  document.getElementById('test-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let score = 0;
+    for (let q in answerKey) {
+      const sel = document.querySelector(`input[name="${q}"]:checked`);
+      if (sel && sel.value === answerKey[q]) score++;
+    }
+    let level = '';
+    if (score >= 27) level = 'C1';
+    else if (score >= 23) level = 'B2';
+    else if (score >= 18) level = 'B1';
+    else if (score >= 13) level = 'A2';
+    else level = 'A1';
+    const desc = descriptions[level];
+    const badgeClass = badgeClasses[level];
+
+    // Build result card
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `
+      <div class="result-card">
+        <p class="score"><span id="score-number">0</span>/30</p>
+        <p class="level">CEFR Level: <span class="badge-level ${badgeClass}">${level}</span></p>
+        <p>${desc}</p>
+      </div>
+    `;
+    // Animate score count-up
+    const scoreEl = document.getElementById('score-number');
+    let count = 0;
+    const target = score;
+    const duration = 1000;
+    const stepTime = Math.max(Math.floor(duration/target), 20);
+    const timer = setInterval(()=>{
+      count++;
+      scoreEl.textContent = count;
+      if (count >= target) clearInterval(timer);
+    }, stepTime);
+
+    // Launch confetti
+    confetti({
+      particleCount: 150,
+      spread: 60,
+      origin: { y: 0.6 }
+    });
+
+    // Scroll into view
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
 </body>
 </html>
