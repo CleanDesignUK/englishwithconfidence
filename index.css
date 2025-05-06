@@ -720,3 +720,16 @@ footer.footer { padding-bottom: 3rem !important; }
 .practice-card:hover img {
   transform: scale(1.1);
 }
+
+/* Group Class Offer Section */
+#group-offer .promo-box {
+  /* override image and use a soft cream background */
+  background-image: none;
+  background-color: var(--warm-cream);
+}
+/* Group Class Offer Section: use same promo.png background */
+#group-offer .promo-box {
+  background-image: url('promo.png');
+  background-size: cover;
+  background-position: center;
+}
