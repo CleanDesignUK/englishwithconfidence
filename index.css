@@ -733,3 +733,25 @@ footer.footer { padding-bottom: 3rem !important; }
   background-size: cover;
   background-position: center;
 }
+
+/* ─────────────────────────────────────────────────────
+   Indonesian for Expats & Foreigners Section Styles
+───────────────────────────────────────────────────── */
+.expat-section {
+  background: rgba(0,0,0,0.6);
+  overflow: hidden;
+  position: relative;
+}
+
+.expat-section .container {
+  z-index: 1;
+}
+.expat-section h2,
+.expat-section p,
+.expat-section .btn {
+  color: #fff;
+}
+.btn-outline-light {
+  border: 2px solid #FF9400 !important;
+  color: #FF9400 !important;
+}
